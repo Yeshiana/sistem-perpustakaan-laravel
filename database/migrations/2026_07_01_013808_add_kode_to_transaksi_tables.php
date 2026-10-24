@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::table('peminjaman', function (Blueprint $table) {
+            $table->string('kode_peminjaman', 20)->unique()->nullable()->after('id');
+        });
+
+        Schema::table('pengembalian', function (Blueprint $table) {
+            $table->string('kode_pengembalian', 20)->unique()->nullable()->after('id');
+        });
+
+        Schema::table('sanksi', function (Blueprint $table) {
+            $table->string('kode_sanksi', 20)->unique()->nullable()->after('id');
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::table('peminjaman', function (Blueprint $table) {
+            $table->dropColumn('kode_peminjaman');
+        });
+
+        Schema::table('pengembalian', function (Blueprint $table) {
+            $table->dropColumn('kode_pengembalian');
+        });
+
+        Schema::table('sanksi', function (Blueprint $table) {
+            $table->dropColumn('kode_sanksi');
+        });
+    }
+};
