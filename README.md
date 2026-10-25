@@ -122,8 +122,8 @@ DB_PASSWORD=
 Lanjutkan dengan:
 
 ```bash
-# 4. Buat tabel dan tautkan storage (untuk sampul buku dan bukti unggahan)
-php artisan migrate
+# 4. Buat tabel, isi akun demo, dan tautkan storage (untuk sampul buku dan bukti unggahan)
+php artisan migrate --seed
 php artisan storage:link
 
 # 5. Jalankan aplikasi
@@ -136,16 +136,16 @@ Untuk mengakses dari smartphone atau komputer lain di jaringan Wi-Fi yang sama, 
 
 ## Akun Demo
 
-Halaman login (`/login`) meminta **Username** dan **Password**.
+Akun berikut dibuat otomatis oleh `php artisan migrate --seed`. Password semuanya: `demo12345`
 
-| Peran | Username | Password |
+| Peran | Username | Halaman login |
 |---|---|---|
-| Siswa | NISN | Password saat mendaftar |
-| Guru | Nama lengkap | Diberikan oleh petugas |
-| Petugas | `[ISI USERNAME DEMO]` | `[ISI PASSWORD DEMO]` |
-| Kepala | `[ISI USERNAME DEMO]` | `[ISI PASSWORD DEMO]` |
+| Siswa | `0000000001` | `/login` |
+| Guru | `Guru Demo` | `/login` |
+| Petugas | `Petugas Demo` | `/admin/login` |
+| Kepala | `Kepala Demo` | `/admin/login` |
 
-> Seluruh data pada aplikasi ini adalah data dummy.
+> Seluruh data pada aplikasi ini adalah data dummy. Seeder akun demo tidak berjalan di environment `production`.
 
 ## Testing
 
@@ -163,7 +163,8 @@ php artisan test
 | Masalah | Solusi |
 |---|---|
 | Error koneksi database (`SQLSTATE`) | Pastikan MySQL aktif di XAMPP dan cek `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD` di `.env` |
-| Tabel tidak ditemukan | Jalankan `php artisan migrate` |
+| Tabel tidak ditemukan | Jalankan `php artisan migrate --seed` |
+| Tidak bisa login | Pastikan `migrate --seed` sudah dijalankan. Petugas dan kepala login lewat `/admin/login` |
 | `No application encryption key` | Jalankan `php artisan key:generate` |
 | Sampul buku atau bukti unggahan tidak tampil | Jalankan `php artisan storage:link` |
 | Halaman error setelah mengubah `.env` | Jalankan `php artisan config:clear` |
