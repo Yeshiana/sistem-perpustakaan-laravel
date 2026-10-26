@@ -62,14 +62,15 @@
                         @error('guru') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
 
-                    <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal Rencana Kembali <span class="text-red-500">*</span></label>
-                        <input type="date" name="tgl_kembali" value="{{ old('tgl_kembali') }}"
-                               min="{{ date('Y-m-d') }}"
-                               class="w-full border rounded-lg px-3 py-2 text-sm" required>
-                        @error('tgl_kembali') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
-                    </div>
-
+                       <div class="mb-4">
+       <label class="block text-sm font-medium text-gray-700 mb-1">Tanggal Rencana Kembali <span class="text-red-500">*</span></label>
+       <input type="date" name="tgl_kembali" value="{{ old('tgl_kembali') }}"
+              min="{{ date('Y-m-d') }}"
+              class="w-full border rounded-lg px-3 py-2 text-sm" required>
+       <p class="text-xs text-gray-500 mt-1">Tidak ada batas maksimal. Untuk pemakaian satu semester, isi dengan tanggal akhir semester.</p>
+       @error('tgl_kembali') <p class="text-red-500 text-sm mt-1">{{ $message }}</p> @enderror
+   </div>
+   
                     <div class="flex flex-col-reverse sm:flex-row sm:justify-end gap-2 mt-6">
                         <a href="{{ route('pengurus.peminjaman.index') }}"
                         class="bg-gray-300 text-gray-700 px-4 py-2.5 rounded-lg hover:bg-gray-400 text-sm text-center">Batal</a>
