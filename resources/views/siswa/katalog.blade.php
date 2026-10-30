@@ -51,7 +51,7 @@
                     @if(request('search'))
                         Hasil pencarian untuk "<span class="text-sky-600">{{ request('search') }}</span>"
                     @else
-                        Koleksi Buku Tersedia
+                        Koleksi Buku
                     @endif
                 </h3>
 

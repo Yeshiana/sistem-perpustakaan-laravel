@@ -406,16 +406,25 @@ public function kembalikan(Request $request, Peminjaman $peminjaman)
     return redirect()->back()->with('success', 'Pengembalian dikonfirmasi! Sanksi telah dicatat.');
 }
 // Siswa/Guru - Lihat katalog
+    // Semua buku ditampilkan (termasuk stok habis, ditandai di tampilan).
+    // Buku yang masih tersedia diurutkan lebih dulu.
     public function katalog(Request $request)
     {
-        $query = Buku::where('stok_tersedia', '>', 0);
+        $query = Buku::with('kategori');
 
         if ($request->search) {
-            $query->where('judul', 'like', '%'.$request->search.'%')
+            $query->where(function ($q) use ($request) {
+                $q->where('judul', 'like', '%'.$request->search.'%')
                   ->orWhere('pengarang', 'like', '%'.$request->search.'%');
+            });
         }
 
-        $buku = $query->latest()->paginate(12);
+        $buku = $query
+            ->orderByRaw('stok_tersedia > 0 DESC')
+            ->latest()
+            ->paginate(12)
+            ->withQueryString();
+
         return view('siswa.katalog', compact('buku'));
     }
 
