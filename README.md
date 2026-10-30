@@ -7,20 +7,15 @@ Sistem informasi perpustakaan berbasis website untuk menggantikan pencatatan man
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white)
 
-<!--
-Setelah screenshot ditambahkan ke folder docs/screenshots, hapus tanda komentar ini
-dan sesuaikan nama file.
-
 ## Tampilan Aplikasi
 
-| Beranda | Katalog Buku |
+| Beranda | Dashboard Siswa |
 |---|---|
-| ![Beranda](docs/screenshots/beranda.png) | ![Katalog](docs/screenshots/katalog.png) |
+| ![Beranda](docs/screenshots/beranda.png) | ![Dashboard Siswa](docs/screenshots/dashboard-siswa.png) |
 
-| Dashboard Petugas | Laporan |
+| Dashboard Petugas | Dashboard Kepala |
 |---|---|
-| ![Dashboard](docs/screenshots/dashboard-petugas.png) | ![Laporan](docs/screenshots/laporan.png) |
--->
+| ![Dashboard Petugas](docs/screenshots/dashboard-petugas.png) | ![Dashboard Kepala](docs/screenshots/dashboard-kepala.png) |
 
 ## Fitur Utama
 
